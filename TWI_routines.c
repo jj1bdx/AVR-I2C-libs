@@ -30,8 +30,8 @@ void twiwrite(uint8_t data)
 uint8_t twiread(uint16_t ack) // nack 0
 {
 	TWCR = ack ?
-	  ((1 << TWINT) | (1 << TWEN) | (1<<TWIE) | (1 << TWEA))
-	: ((1 << TWINT) | (1 << TWEN) | (1<<TWIE)) ;
+	  ((1 << TWINT) | (1 << TWEN) | (1 << TWEA))
+	: ((1 << TWINT) | (1 << TWEN)) ;
 	
 	while (!(TWCR & (1<<TWINT)));
 	return TWDR;
