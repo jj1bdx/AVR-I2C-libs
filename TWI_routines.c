@@ -51,7 +51,7 @@ void scan(void)
 		{
 			uart_puts_P("Found device at address - 0x");
 			uart_put_hex(s);
-			uart_puts_P(" (<< 1) \t 0b");
+			uart_puts_P(" (<< 1 for SLA_W) \t 0b");
 			uart_putintr(s, 2);
 			uart_puts_P(" 0\r\n");
 			
