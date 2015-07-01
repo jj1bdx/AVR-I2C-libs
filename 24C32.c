@@ -2,14 +2,14 @@
 
 void eewrite(uint8_t device, uint16_t addr, uint8_t dat)
 {
-start:
-	twistart();
-	twiwrite(device);
-	
-	if ( (TWSR & 0xF8) == TW_MT_SLA_NACK)
+	while(1)
 	{
+		twistart();
+		twiwrite(device);
+		
+		if ( (TWSR & 0xF8) != TW_MT_SLA_NACK) break;
+		
 		twistop();
-		goto start;
 	}
 
 	twiwrite(addr >> 8);
@@ -22,14 +22,15 @@ start:
 uint8_t eeread(uint8_t device, uint16_t addr)
 {
 	uint8_t dat;
-start:
-	twistart();
-	twiwrite(device);
-
-	if ( (TWSR & 0xF8) == TW_MT_SLA_NACK)
+	
+	while(1)
 	{
+		twistart();
+		twiwrite(device);
+		
+		if ( (TWSR & 0xF8) != TW_MT_SLA_NACK) break;
+		
 		twistop();
-		goto start;
 	}
 	
 	twiwrite(addr >> 8); 
@@ -45,14 +46,14 @@ start:
 
 void ee_write_page(uint8_t device, uint16_t addr, uint8_t len, uint8_t *buf) // check dadasheet for maximum page size
 {
-start:
-	twistart();
-	twiwrite(device);
-
-	if ( (TWSR & 0xF8) == TW_MT_SLA_NACK)
+	while(1)
 	{
+		twistart();
+		twiwrite(device);
+		
+		if ( (TWSR & 0xF8) != TW_MT_SLA_NACK) break;
+		
 		twistop();
-		goto start;
 	}
 	
 	twiwrite(addr >> 8);
@@ -65,14 +66,14 @@ start:
 
 void ee_read_page(uint8_t device, uint16_t addr, uint16_t len, uint8_t *buf) 
 {
-start:
-	twistart();
-	twiwrite(device);
-
-	if ( (TWSR & 0xF8) == TW_MT_SLA_NACK)
+	while(1)
 	{
+		twistart();
+		twiwrite(device);
+		
+		if ( (TWSR & 0xF8) != TW_MT_SLA_NACK) break;
+		
 		twistop();
-		goto start;
 	}
 	
 	twiwrite(addr >> 8);
