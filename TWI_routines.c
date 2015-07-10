@@ -28,15 +28,18 @@
 //******************************************************************
 //Function	: To initialize TWI bus.
 //Arguments	: 1. Calculated twbr value.
-//			: 2. 
+//			: 2. Prescaler for TWI clock (1,4,16,64)
 //Return	: none
 //note		: use TWBR_CALC(speed) macro to calculate twbr value
 //******************************************************************
 	void twi_init_presc(uint8_t twbr_value, uint8_t prescaler)
 	{
-		//TWSR = 0x00;
 		TWBR = twbr_value;
-		//pullups?//inline
+		if (PrescalerValue == 1) TWSR=(0<<TWPS1)|(0<<TWPS0);
+		if (PrescalerValue == 4) TWSR=(0<<TWPS1)|(1<<TWPS0);
+		if (PrescalerValue == 16) TWSR=(1<<TWPS1)|(0<<TWPS0);
+		if (PrescalerValue == 64) TWSR=(1<<TWPS1)|(1<<TWPS0);
+		//pullups?
 	}
 
 //******************************************************************
