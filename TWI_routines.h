@@ -8,7 +8,15 @@
  *  This library is distributed under MIT license terms                             *
  ************************************************************************************/
  
-#define TWBR_CALC(speed) ( (F_CPU / speed) - 16UL ) / 2UL
+#ifndef __OPTIMIZE__
+	#warning "Compiler optimizations disabled; functions from TWI_routines.h won't work as designed"
+#endif
+
+#ifndef F_CPU
+	#error F_CPU is undefined, TWI cannot work correctly without this parametr
+#endif
+ 
+ #define TWBR_CALC(speed) ( (F_CPU / speed) - 16UL ) / 2UL
 #define SLA_W(address)  (address << 1)
 #define SLA_R(address)  ((address << 1) + 0x01)
  
@@ -17,7 +25,11 @@ void twistart(void);
 void twistop(void);
 void twiwrite(uint8_t data);
 uint8_t twiread(uint16_t ack);
-//void scan(void);
+
+uint8_t twiread_ACK(void);
+uint8_t twiread_NACK(void);
+
+void scan(void);
  
  
 #endif
