@@ -1,11 +1,11 @@
 //**************************************************************
 // ****** FUNCTIONS FOR TWI COMMUNICATION *******
 //**************************************************************
-//Compiler			: AVR-GCC
-//Author			: jnk0le@hotmail.com
-//			  		  https://github.com/jnk0le
-//Date				: 24 June 2015
-//License			: MIT
+//Compiler          : AVR-GCC
+//Author            : jnk0le@hotmail.com
+//                    https://github.com/jnk0le
+//Date              : 24 June 2015
+//License           : MIT
 //**************************************************************
 
 #include <util/twi.h>
@@ -13,10 +13,10 @@
 //include "usart.h"
 
 //******************************************************************
-//Function	: To initialize TWI bus.
-//Arguments	: 1. Calculated twbr value.
-//Return	:    none
-//note		: Use TWBR_CALC(speed) macro to calculate twbr value.
+//Function  : To initialize TWI bus.
+//Arguments : 1. Calculated twbr value.
+//Return    :    none
+//note      : Use TWBR_CALC(speed) macro to calculate twbr value.
 //******************************************************************
 	void twi_init(uint8_t twbr_value)
 	{
@@ -26,11 +26,11 @@
 	}
 	
 //******************************************************************
-//Function	: To initialize TWI bus.
-//Arguments	: 1. Calculated twbr value.
-//			: 2. Prescaler for TWI clock (1,4,16,64)
-//Return	:    none
-//note		: Use TWBR_CALC(speed)/prescaler macro to calculate twbr value.
+//Function  : To initialize TWI bus.
+//Arguments : 1. Calculated twbr value.
+//          : 2. Prescaler for TWI clock (1,4,16,64)
+//Return    :    none
+//note      : Use TWBR_CALC(speed)/prescaler macro to calculate twbr value.
 //******************************************************************
 	void twi_init_presc(uint8_t twbr_value, uint8_t prescaler)
 	{
@@ -43,9 +43,9 @@
 	}
 
 //******************************************************************
-//Function	: Sends start condition.
-//Arguments	: none
-//Return	: none
+//Function  : Sends start condition.
+//Arguments : none
+//Return    : none
 //******************************************************************
 	void twistart(void)
 	{
@@ -54,9 +54,9 @@
 	}
 
 //******************************************************************
-//Function	: Sends stop condition.
-//Arguments	: none
-//Return	: none
+//Function  : Sends stop condition.
+//Arguments : none
+//Return    : none
 //******************************************************************
 	void twistop(void)
 	{
@@ -65,9 +65,9 @@
 	}
 
 //******************************************************************
-//Function	: To send single byte on TWI bus.
-//Arguments	: Byte to send.
-//Return	: none
+//Function  : To send single byte on TWI bus.
+//Arguments : Byte to send.
+//Return    : none
 //******************************************************************
 	void twiwrite(uint8_t data)
 	{
@@ -77,10 +77,10 @@
 	}
 
 //******************************************************************
-//Function	: To read single byte from TWI bus.
-//Arguments	: Loop counter 0 = NACK or ACK on any other value.
-//Return	: Received byte.
-//Note		: This function seems to be smaller than separate ACK'ing and NACK'ing functions.
+//Function  : To read single byte from TWI bus.
+//Arguments : Loop counter 0 = NACK or ACK on any other value.
+//Return    : Received byte.
+//Note      : This function seems to be smaller than separate ACK'ing and NACK'ing functions.
 //******************************************************************
 	uint8_t twiread(uint16_t ack) // nack 0
 	{
@@ -93,9 +93,9 @@
 	}
 
 //******************************************************************
-//Function	: To read single and contiunue receiving by sending ACK.
-//Arguments	: none
-//Return	: Received byte.
+//Function  : To read single and contiunue receiving by sending ACK.
+//Arguments : none
+//Return    : Received byte.
 //******************************************************************
 	uint8_t twiread_ACK(void)
 	{
@@ -106,9 +106,9 @@
 	}
 
 //******************************************************************
-//Function	: To read single and stop receiving by sending NACK.
-//Arguments	: none
-//Return	: Received byte.
+//Function  : To read single and stop receiving by sending NACK.
+//Arguments : none
+//Return    : Received byte.
 //******************************************************************
 	uint8_t twiread_NACK(void)
 	{
@@ -119,9 +119,9 @@
 	}
 
 //******************************************************************
-//Function	: To scan i2c bus. 
-//Arguments	: none
-//Return	: none
+//Function  : To scan i2c bus. 
+//Arguments : none
+//Return    : none
 //******************************************************************
 #if defined(USART_H) && defined(DEFAULT_TX_BUFFER_SIZE)
 	void scan(void)
