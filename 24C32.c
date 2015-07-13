@@ -17,7 +17,7 @@
 //Arguments	: 1. SLA_W device address.
 //			: 2. 16 bit internal address of the location to be written.
 //			: 3. One byte of data to be written into EEPROM.
-//Return	: none
+//Return	:    none
 //******************************************************************
 	void eewrite(uint8_t device, uint16_t addr, uint8_t dat)
 	{
@@ -42,9 +42,9 @@
 //Function	: To read single byte from the EEPROM memory.
 //Arguments	: 1. SLA_W device address.
 //			: 2. 16 bit internal address of the location to read.
-//Return	: Byte containing the read data.
+//Return	:    Byte containing the read data.
 //******************************************************************
-	uint8_t eeread(uint8_t device, uint16_t addr)  // readto ?
+	uint8_t eeread(uint8_t device, uint16_t addr)
 	{
 		uint8_t dat;
 		
@@ -75,7 +75,7 @@
 //Arguments	: 1. SLA_W device address.
 //			: 2. 16 bit internal address of the location to read.
 //			: 3. Pointer of the location to load byte from EEPROM.
-//Return	: none
+//Return	:    none
 //******************************************************************
 	void eereadto(uint8_t device, uint16_t addr, uint8_t *dat)
 	{
@@ -105,7 +105,7 @@
 //			: 2. 16 bit initial address of the location to write
 //			: 3. Number of bytes to write.
 //			: 4. Pointer to array containing data.
-//Return	: none
+//Return	:    none
 //Note		: Page Write mode allows for multiple writes in one cycle, provided that all bytes
 //			: fits up to the end of the row, otherwise a condition known as 'roll-over' will occur.
 //			: That means the most significant memory address bits have to be the same, during one page write.
@@ -136,8 +136,8 @@
 //Arguments	: 1. SLA_W device address.
 //			: 2. 16 bit initial address of the the location to read
 //			: 3. Number of bytes to read.
-//			: 4. Pointer to array to fill with incoming data.
-//Return	: none
+//			: 4. Pointer to array which have to be filled with incoming data.
+//Return	:    none
 //******************************************************************
 	void ee_read_page(uint8_t device, uint16_t addr, uint16_t len, uint8_t *buf) 
 	{

@@ -21,6 +21,7 @@
 #define SLA_R(address)  ((address << 1) + 0x01)
  
 void twi_init(uint8_t twbr_value);
+void twi_init_presc(uint8_t twbr_value, uint8_t prescaler);
 void twistart(void);
 void twistop(void);
 void twiwrite(uint8_t data);

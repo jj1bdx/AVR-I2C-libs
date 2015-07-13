@@ -15,8 +15,8 @@
 //******************************************************************
 //Function	: To initialize TWI bus.
 //Arguments	: 1. Calculated twbr value.
-//Return	: none
-//note		: use TWBR_CALC(speed) macro to calculate twbr value
+//Return	:    none
+//note		: Use TWBR_CALC(speed) macro to calculate twbr value.
 //******************************************************************
 	void twi_init(uint8_t twbr_value)
 	{
@@ -29,8 +29,8 @@
 //Function	: To initialize TWI bus.
 //Arguments	: 1. Calculated twbr value.
 //			: 2. Prescaler for TWI clock (1,4,16,64)
-//Return	: none
-//note		: use TWBR_CALC(speed) macro to calculate twbr value
+//Return	:    none
+//note		: Use TWBR_CALC(speed)/prescaler macro to calculate twbr value.
 //******************************************************************
 	void twi_init_presc(uint8_t twbr_value, uint8_t prescaler)
 	{
@@ -66,7 +66,7 @@
 
 //******************************************************************
 //Function	: To send single byte on TWI bus.
-//Arguments	: 1. Byte to send.
+//Arguments	: Byte to send.
 //Return	: none
 //******************************************************************
 	void twiwrite(uint8_t data)
@@ -78,7 +78,7 @@
 
 //******************************************************************
 //Function	: To read single byte from TWI bus.
-//Arguments	: 1. Loop counter 0 = NACK or ACK on any other value.
+//Arguments	: Loop counter 0 = NACK or ACK on any other value.
 //Return	: Received byte.
 //Note		: This function seems to be smaller than separate ACK'ing and NACK'ing functions.
 //******************************************************************
