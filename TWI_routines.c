@@ -123,7 +123,7 @@
 //Arguments : none
 //Return    : none
 //******************************************************************
-#if defined(USART_H) && defined(DEFAULT_TX_BUFFER_SIZE)
+#if defined(_USART_H_) && defined(DEFAULT_TX_BUFFER_SIZE)
 	void scan(void)
 	{
 		uart_puts_P("Scanning for devices on i2c bus ...\r\n\n");
